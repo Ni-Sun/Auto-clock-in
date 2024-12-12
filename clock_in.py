@@ -154,10 +154,10 @@ def Fill_out_the_form():
 def Submit():
     print('Submit: ',end='')
     try:
-        element1 = browser.find_element(by=By.XPATH,value="/html/body/div[9]/div/div[3]/div[3]/div/div/div/div/div/div[2]/div/div/div/div/div[3]/div/div[1]/div[4]/button")
+        element1 = browser.find_element(by=By.XPATH,value="//button[@type='button' and contains(text(),'提交')]")
         element1.click()
 
-        element2 = browser.find_element(by=By.XPATH,value="/html/body/div[17]/div/div[4]/button[2]/div")
+        element2 = browser.find_element(by=By.XPATH,value="//div[@class='dui-button-container' and @data-dui-1-9-1='dui-button-container' and contains(text(), '确认')]")
         element2.click()
         print('successful')
         return True
