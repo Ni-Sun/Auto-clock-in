@@ -169,13 +169,11 @@ def Submit():
 # 自动打卡
 def Auto():
     # 要写全, 不能写短网址
-    url1 = 'https://docs.qq.com/form/page/DQldIUWVYVGVjUnpZ#/fill'
-    url2 = 'https://docs.qq.com/form/page/DZkxiVGJCTkpVTHlq?_t=1728998772250&u=46aa43b6e8ac46d2bef7e827a2a63231#/fill'
+    # url1 = 'https://docs.qq.com/form/page/DQldIUWVYVGVjUnpZ#/fill'
+    url = 'https://docs.qq.com/form/page/DZkxiVGJCTkpVTHlq?_t=1728998772250&u=46aa43b6e8ac46d2bef7e827a2a63231#/fill'
 
     # browser.set_window_rect(950, 0, 950, 2100)
-    # browser.maximize_window()
-    browser.get(url2)
-    
+    browser.get(url)
 
     Log_in()
     Fill_out_the_form()
