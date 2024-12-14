@@ -1,4 +1,4 @@
-import subprocess
+import clock_in
 
 lines=[]
 flag = False
@@ -41,7 +41,7 @@ if not flag:
     file.close()
 
 try:
-    subprocess.run(['./clock_in.exe'], check=True)
+    clock_in.Auto()
     print('自动打卡成功')
 except:
     print('自动打卡失败')
