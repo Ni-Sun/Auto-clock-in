@@ -90,26 +90,54 @@ def Automatically_log_in_next_time(browser):
     except:
         print('failed')
 
+#
+def Check_login_successful(browser):
+    flag = True
+    try:
+        element = browser.find_element(by=By.XPATH,value="//span[contains(@id,'img_out_') and @uin and @class='img_out_focus']")
+        flag = False
+    except:
+        pass
+
+    try:
+        element = browser.find_element(by=By.XPATH,value="//div[contains(text(),'快捷登录')]")
+        flag = False
+    except:
+        pass
+
+    return flag
+
 # 点击头像登录
 def Click_avatar_to_login(browser):
-    iframe1 = WebDriverWait(browser,10).until(EC.presence_of_element_located((By.XPATH,'//iframe')))
-    browser.switch_to.frame(iframe1)
-
-    iframe2 = browser.find_element(by=By.XPATH,value='//iframe')
-    browser.switch_to.frame(iframe2)
     print('Avatar:  ', end='')
+    flag = False
     try:
-        # <span id="img_out_xxxxxx" uin="xxxxxx" type="4" class="img_out_focus"></span>
-        element = WebDriverWait(browser,10).until(EC.presence_of_element_located((By.XPATH,"//span[contains(@id,'img_out_') and @uin and @class='img_out_focus']")))
-        element.click()
-        print('successful')
-        time.sleep(4)
-        
+        iframe1 = WebDriverWait(browser,10).until(EC.presence_of_element_located((By.XPATH,'//iframe')))
+        browser.switch_to.frame(iframe1)
+
+        iframe2 = browser.find_element(by=By.XPATH,value='//iframe')
+        browser.switch_to.frame(iframe2)
+
+        cnt = 2
+        while cnt and not flag:
+            cnt -= 1
+            try:
+                element = WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(@id,'img_out_') and @uin and @class='img_out_focus']")))
+                element.click()
+                time.sleep(4)
+                flag = Check_login_successful(browser)
+            except:
+                continue
+
+        browser.switch_to.parent_frame()
+        browser.switch_to.parent_frame()
+        # browser.switch_to.default_content()
     except:
+        pass
+    if flag:
+        print('successful')
+    else:
         print('failed')
-    browser.switch_to.parent_frame()
-    browser.switch_to.parent_frame()
-    # browser.switch_to.default_content()
 
 
 # 登录
@@ -160,7 +188,7 @@ def locate(browser):
 
 
 def Fill_out_the_form(browser):
-    print('Fill_out_the_form2: ',end='')
+    print('Fill_out_the_form: ',end='')
     try:
         file = open('./data.txt','r',encoding='utf-8')
         lines=file.readlines()
@@ -195,19 +223,19 @@ def Submit(browser):
 
 
 
-# 自动打卡
-def Auto():
-    browser = Use_Chrome() if Use_Chrome() != None else Use_Edge()
+# 自动打卡, 参数为打卡网址
+def Auto(url):
+    browser = Use_Chrome()
+    if browser == None:
+        browser = Use_Edge()
+
     if browser == None:
         print('No browser available')
         return
-    browser.implicitly_wait(2)  # 隐式等待2s
 
-    # 要写全, 不能写短网址
-    url1 = 'https://docs.qq.com/form/page/DQldIUWVYVGVjUnpZ#/fill'      # 每日晚归打卡(test)
-    url = 'https://docs.qq.com/form/page/DZkxiVGJCTkpVTHlq?_t=1728998772250&u=46aa43b6e8ac46d2bef7e827a2a63231#/fill'   # 每日晚归打卡
+    browser.implicitly_wait(2)  # 隐式等待2s
     browser.set_window_rect(950, 0, 950, 2100)
-    browser.get(url1)
+    browser.get(url)
 
     Close_TXWD(browser)
     Log_in(browser)
@@ -222,4 +250,7 @@ def Auto():
 
 
 if __name__ == '__main__':
-    Auto()
+    # 要写全, 不能写短网址
+    url1 = 'https://docs.qq.com/form/page/DQldIUWVYVGVjUnpZ#/fill'  # 每日晚归打卡(test)
+    url2 = 'https://docs.qq.com/form/page/DZkxiVGJCTkpVTHlq?_t=1728998772250&u=46aa43b6e8ac46d2bef7e827a2a63231#/fill'  # 每日晚归打卡
+    Auto(url1)

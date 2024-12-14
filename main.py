@@ -8,8 +8,8 @@ try:
     lines = file.readlines()
     file.close()
 
-    #  第一行为姓名, 第二行为学号(10位)
-    if len(lines) >= 2 and len(lines[0]) >= 2 and len(lines[1]) == 10:
+    #  第一行为姓名, 第二行为学号(10位), 第三行为URL
+    if len(lines) >= 3 and len(lines[0]) >= 2 and len(lines[1]) == 10:
         flag = True
 
 except Exception as FileNotFoundError:
@@ -20,6 +20,7 @@ if not flag:
     print('姓名:')
     name = input()
 
+    # 学号
     id=''
     valid = False
     while not valid:
@@ -35,13 +36,18 @@ if not flag:
                 print('学号全部都是数字!!')
                 break
 
+    # 打卡URL
+    print('\n打卡链接(不要输入短网址):')
+    url = input()
+
     file = open('./data.txt', 'w', encoding='utf-8')
-    file.write(name + '\n')
-    file.write(id)
+    file.write(name+'\n')
+    file.write(id+'\n')
+    file.write(url)
     file.close()
 
 try:
-    clock_in.Auto()
+    clock_in.Auto(lines[2])
     print('自动打卡成功')
 except:
     print('自动打卡失败')
