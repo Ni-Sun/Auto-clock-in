@@ -4,13 +4,9 @@
 
 实现步骤:自动登录, 输入姓名,学号, 自动定位(定位失败时尝试重新定位)
 
-
-
-
+<br>
 
 # **使用方法**
-
-
 
 ### 直接双击运行main.exe即可 $_{(大概率报毒, 需要点击仍要运行)}$
 
@@ -24,7 +20,7 @@
 
 #### 如果打卡成功, 那其余报错不用管
 
-
+<br>
 
 # 每日打卡
 
@@ -40,13 +36,11 @@
 
 起始时间选择当天的晚上8:00(只要晚于打卡收集表开始收集的时间即可)
 
-![img1](\image\img1.png)
+![img1](./image/img1.png)
 
+### 操作选项
 
-
-#### 操作选项
-
-![img2](\image\img2.png)
+![img2](./image/img2.png)
 
 程序或脚本: 你的main.exe的路径
 
@@ -54,17 +48,12 @@
 
 起始于: 你的main.exe所在目录,即main.exe的路径去掉最后的main.exe即可
 
-
+<br>
 
 ## 下载
 
-下载可以到<a href="https://github.com/Ni-Sun/Auto-clock-in/tree/v1.1.0">我的github仓库</a>下载, 下载最新版本即可
+下载可以到 <a href="https://github.com/Ni-Sun/Auto-clock-in/tree/main?tab=readme-ov-file">我的github仓库</a>下载, 下载最新版本即可
 
 下载大概率会报毒, 需要点击**保留文件**. 如果无法下载需要去windows安全中心关闭实时保护. 具体操作参考<a href="https://blog.csdn.net/m0_74188229/article/details/137543471?fromshare=blogdetail&sharetype=blogdetail&sharerId=137543471&sharerefer=PC&sharesource=qq_73781710&sharefrom=from_link">下载文件检测到病毒 无法被下载 程序被阻止 解决办法.</a> 或者可能需要关闭其他防毒软件.
 
 运行时也需要点**仍要运行**
-
-
-
-
-
