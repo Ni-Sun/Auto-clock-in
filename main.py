@@ -9,7 +9,7 @@ try:
     file.close()
 
     #  第一行为姓名, 第二行为学号(10位), 第三行为URL
-    if len(lines) >= 3 and len(lines[0]) >= 2 and len(lines[1]) == 10:
+    if len(lines) >= 3 and len(lines[0]) >= 2 and len(lines[1]) == 11:
         flag = True
 
 except Exception as FileNotFoundError:

@@ -19,7 +19,7 @@ def Use_Chrome():
     try:
         start_options = ChromeOptions()
         start_options.use_chromium = True
-        start_options.add_argument('--headless')  # 隐藏浏览器窗口
+        # start_options.add_argument('--headless')  # 隐藏浏览器窗口
         browser = webdriver.Chrome(options=start_options)
         return browser
     except:
