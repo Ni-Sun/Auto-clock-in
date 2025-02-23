@@ -8,7 +8,7 @@ from win11toast import toast
 
 def init_logger():
     level = logging.DEBUG
-    log = logger.get_logger(level)
+    log = logger.get_logger()
     return log
 
 log = init_logger()
@@ -16,6 +16,7 @@ log = init_logger()
 def main():
     lines=[]
     flag = False
+    # log.info('\n\n\n\n')      # 似乎没法打印换行
     try:
         # 读取信息
         file = open('./data.txt', 'r', encoding='utf-8')
@@ -31,7 +32,7 @@ def main():
 
     if not flag:
         # 输入信息
-        log.info('姓名:')
+        print('姓名:')
         name = input()
 
         # 学号
@@ -39,7 +40,7 @@ def main():
         valid = False
         while not valid:
             valid = True
-            log.info('\n学号:')
+            print('\n学号:')
             id = input()
             if len(id) != 10:
                 valid = False
@@ -51,7 +52,7 @@ def main():
                     break
 
         # 打卡URL
-        log.info('\n打卡链接(不要输入短网址):')
+        print('\n打卡链接(不要输入短网址):')
         url = input()
 
         file = open('./data.txt', 'w', encoding='utf-8')

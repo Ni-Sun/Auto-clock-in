@@ -1,0 +1,10 @@
+2025-02-23 00:02:44,245 - ERROR    - Close_TXWD: failed
+2025-02-23 00:02:44,607 - INFO     - QQ_login: successful
+2025-02-23 00:02:44,762 - INFO     - Accept_the_agreement1: successful
+2025-02-23 00:02:46,788 - ERROR    - Accept_the_agreement2: failed
+2025-02-23 00:02:48,794 - ERROR    - Automatically_log_in_next_time: failed
+2025-02-23 00:02:57,062 - INFO     - Click_avatar_to_login: successful
+2025-02-23 00:02:57,132 - INFO     - Fill_out_another: successful
+2025-02-23 00:03:03,418 - INFO     - Fill_out_the_form: successful
+2025-02-23 00:03:03,518 - INFO     - Submit: successful
+2025-02-23 00:03:05,711 - INFO     - 自动打卡成功
