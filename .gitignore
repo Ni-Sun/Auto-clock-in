@@ -1,0 +1,16 @@
+# Ignore data.txt
+data.txt
+
+*test*          # Ignore all files with test in the name
+
+*.log           # Django
+log/            # Django
+image/          # Django
+
+.idea/          # PyCharm
+__pycache__/    # Python
+
+build/          # build directory
+venv/           # virtual environment
+
+

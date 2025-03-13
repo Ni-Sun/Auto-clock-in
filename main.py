@@ -5,7 +5,6 @@ import logger
 import logging
 from win11toast import toast
 
-
 def init_logger():
     level = logging.DEBUG
     log = logger.get_logger()

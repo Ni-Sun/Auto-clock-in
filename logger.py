@@ -1,9 +1,19 @@
+import os
+import time
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
 
-def get_logger(log_file='clock_in.log'):
+def get_logger(log_file='clock_in.'+time.strftime('%Y-%m-%d', time.localtime())+'.log'):
     """创建隔离的自定义日志器"""
+
+    # 创建日志文件夹
+    log_dir = './log'
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    log_file=os.path.join(log_dir,log_file)
+
     # 创建专属日志器（非 root）
     logger = logging.getLogger("MyLogger")
     logger.setLevel(logging.DEBUG)
@@ -46,6 +56,8 @@ def get_logger(log_file='clock_in.log'):
     logging.getLogger("urllib3").propagate = False
 
     return logger
+
+# 测试logger
 def main():
     # 创建过滤器：只允许 CRITICAL 级别
     class CriticalFilter(logging.Filter):
